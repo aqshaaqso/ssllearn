@@ -1,0 +1,13 @@
+device: auto
+output_dir: /kaggle/working/yolov8_ssl_outputs
+
+ssl:
+  image_dir: /kaggle/input/YOUR_SSL_DATASET/images
+  batch_size: 64
+  num_workers: 2
+
+detection:
+  dataset_yaml: /kaggle/input/YOUR_DETECTION_DATASET/detection.yaml
+  batch_size: 16
+  num_workers: 2
+

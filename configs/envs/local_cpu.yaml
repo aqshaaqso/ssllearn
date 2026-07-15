@@ -1,0 +1,22 @@
+device: cpu
+output_dir: outputs
+
+model:
+  pretrained: false
+  projection_hidden_dim: 128
+
+ssl:
+  image_dir: data/ssl/images
+  image_size: 64
+  batch_size: 2
+  epochs: 1
+  num_workers: 0
+
+detection:
+  dataset_yaml: data/detection.yaml
+  image_size: 64
+  batch_size: 1
+  epochs: 1
+  num_workers: 0
+  patience: 1
+  fractions: [0.1]

@@ -1,0 +1,46 @@
+project_name: yolov8_ssl_experiment
+seed: 42
+device: auto
+output_dir: outputs
+
+model:
+  variant: yolov8n
+  pretrained: true
+  embedding_dim: 128
+  projection_hidden_dim: 512
+
+ssl:
+  image_dir: data/ssl/images
+  image_size: 224
+  batch_size: 64
+  epochs: 100
+  temperature: 0.5
+  learning_rate: 0.0003
+  weight_decay: 0.0001
+  num_workers: 4
+  gradient_clip_norm: 5.0
+  resume: null
+  corrupt_image_policy: error
+  augment:
+    crop_scale: [0.5, 1.0]
+    horizontal_flip_p: 0.5
+    color_jitter_p: 0.8
+    color_jitter_strength: 0.5
+    grayscale_p: 0.2
+    gaussian_blur_p: 0.2
+
+detection:
+  dataset_yaml: data/detection.yaml
+  image_size: 640
+  epochs: 100
+  batch_size: 16
+  num_workers: 4
+  labeled_fraction: 0.1
+  fractions: [0.01, 0.05, 0.1, 0.25, 0.5, 1.0]
+  optimizer: auto
+  patience: 20
+
+logging:
+  level: INFO
+  tensorboard: true
+

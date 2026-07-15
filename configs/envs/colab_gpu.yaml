@@ -1,0 +1,13 @@
+device: auto
+output_dir: /content/yolov8_ssl_outputs
+
+ssl:
+  image_dir: /content/drive/MyDrive/YOUR_SSL_DATASET/images
+  batch_size: 64
+  num_workers: 2
+
+detection:
+  dataset_yaml: /content/drive/MyDrive/YOUR_DETECTION_DATASET/detection.yaml
+  batch_size: 16
+  num_workers: 2
+
